@@ -1,10 +1,15 @@
 import React from 'react';
+import 'bulma/css/bulma.css';
 
 function App() {
   return (
-    <div className="App">
-      Hello from React!!!
-    </div>
+    <section className="section">
+        <div className="container">
+          <h1 className="title">
+            Hello World
+          </h1>
+        </div>
+      </section>
   );
 }
 
