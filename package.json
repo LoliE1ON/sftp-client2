@@ -1,0 +1,92 @@
+{
+  "name": "electron-react",
+  "productName": "electron-react",
+  "version": "1.0.0",
+  "description": "Electron & Ract app",
+  "main": "index.js",
+  "scripts": {
+    "electron-start": "electron-forge start",
+    "electron-start-dev": "cross-env NODE_ENV=development electron-forge start",
+    "electron-package": "electron-forge package",
+    "electron-make": "electron-forge make",
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "start": "npm-run-all --serial react-build electron-start",
+    "dev": "concurrently npm:react-start npm:electron-start-dev",
+    "build": "npm-run-all --serial react-build electron-package",
+    "make": "npm-run-all --serial react-build electron-make"
+  },
+  "homepage":"./",
+  "keywords": [],
+  "author": {
+    "name": "E1ON",
+    "email": "trohimovkavad@gmail.com"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./public/favicon.ico"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "electron_react"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "@types/node": "^12.12.43",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "electron-reload": "^1.5.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.51",
+    "@electron-forge/maker-deb": "^6.0.0-beta.51",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.51",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.51",
+    "@electron-forge/maker-zip": "^6.0.0-beta.51",
+    "electron": "9.0.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
