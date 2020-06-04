@@ -1,14 +1,20 @@
-# Electron React&Typescript
+<p align="center">Rollup + TypeScript + React = ❤️</p>
+<p align="center">
+  <img src="https://img.shields.io/github/license/saltyshiomix/rollup-typescript-react-starter.svg" alt="Package License (MIT)">
+</p>
 
-Electron boilerplate with React and Typescript
+## Usage
 
-# Scripts
+```zsh
+# installation
+$ yarn (or `npm install`)
 
-`start` - Run application
+# development mode
+$ yarn dev (or `npm run dev`)
 
-`dev` - Run application in dev mode
+# production mode
+$ yarn build (or `npm run build`)
+$ yarn start (or `npm start`)
+```
 
-`build` - Creating a portable application package
-
-`make` - Create installation file of you application
-
+And you'll see `Rollup + TypeScript + React = ❤️`!
