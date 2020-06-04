@@ -1,7 +1,11 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 const isDevelopment = process.env.NODE_ENV === "development";
+
+// Enable ipc command
+const ipcCommands = require('./ipc/commands');
+ipcCommands.forEach(command => ipcMain.handle(command.name, command.callback));
 
 // Enable autoreload in development mode
 if (isDevelopment) {
@@ -26,16 +30,14 @@ const createWindow = () => {
     height,
     icon: path.join(__dirname, "./public/favicon.ico"),
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: true
     },
   });
 
   // Hide menu bar
   mainWindow.setMenu(null);
 
-  isDevelopment
-    ? mainWindow.loadURL("http://localhost:3000")
-    : mainWindow.loadFile(path.join(__dirname, "./build/index.html"));
+  mainWindow.loadFile(path.join(__dirname, "./build/index.html"));
 
   // Open the DevTools in development mode
   isDevelopment && mainWindow.webContents.openDevTools();
